@@ -1,3 +1,7 @@
+# 1.0.2
+- fix: map method set() now returns final value
+- fix: map method rm() no longer returns anything
+
 # 1.0.1
 - docs: create/update
 
