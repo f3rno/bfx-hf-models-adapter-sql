@@ -1,30 +1,22 @@
 'use strict'
 
-const HFDBSQLDBAdapter = require('./lib/index')
+const HFDBSQLDBAdapter = require('./lib')
 
 /**
- * This is an adapter around {@npm knex} for the Bitfinex Honey Framework. To
- * use, initialize an instance of the `bfx-hf-models` database with it as an
- * adapter.
+ * This is an adapter around `knex` for the Bitfinex Honey Framework. To use,
+ * initialize an instance of the {@link external:bfx-hf-models} database with
+ * it as an adapter.
  *
- * ### Features
- * * Compatible with multiple flavours of SQL via {@npm knex}
- * * High-scalability vs
- *   {@link module:bfx-hf-models-adapter-lowdb|bfx-hf-models-adapter-lowdb}
- * * Fully compatible with {@link module:bfx-hf-models|bfx-hf-models} & the HF
- *   system ({@link module:bfx-hf-data-server|bfx-hf-data-server},
- *   {@link module:bfx-hf-algo-server|bfx-hf-algo-server},
- *   {@link module:bfx-hf-algo|bfx-hf-algo}, etc)
+ * @license Apache-2.0
+ * @module bfx-hf-models-adapter-sql
+ * @function
+ * @param {object} config - configuration
+ * @param {string} config.clientType - one of 'pg', 'mysql', 'sqlite'
+ * @param {string} config.connection - connection string, i.e. PSQL URL with
+ *   authentication query params
+ * @returns {bfx-hf-models.DBAdapter} adapter
  *
- * ### Installation
- *
- * ```bash
- * npm i --save bfx-hf-models-adapter-sql
- * ```
- *
- * ### Quickstart & Example
- *
- * ```js
+ * @example
  * const HFDBSQLAdapter = require('bfx-hf-models-adapter-sql')
  * const { schema: HFDBBitfinexSchema } = require('bfx-hf-ext-plugin-bitfinex')
  * const HFDB = require('bfx-hf-models')
@@ -43,10 +35,11 @@ const HFDBSQLDBAdapter = require('./lib/index')
  * const candles = await Candle.getAll()
  *
  * console.log(`read ${candles.length} candles`)
- * ```
- *
- * @license Apache-2.0
- * @module bfx-hf-models-adapter-sql
+ */
+
+/**
+ * @external bfx-hf-models
+ * @see https://github.com/bitfinexcom/bfx-hf-models
  */
 
 module.exports = HFDBSQLDBAdapter
